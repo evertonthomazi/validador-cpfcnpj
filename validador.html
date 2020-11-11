@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+    	<meta charset="utf-8">
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.js"></script>
+        <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
+        <!-- acima as dependencias, e abaixo o meu javascript, e um exemplo -->
+        <script type="text/javascript" src="cpfCnpj.validate.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $('#f-exemplo').validate({
+                    debug: true, //retira essa linha, para o form voltar a funcionar
+                    rules: {
+                        'pessoa.cpf': {
+                            cpf: 'valid' //valida tanto Formatação como os Digitos
+                                    //caso não queira validar a formatação use => cpf: 'valid'
+                                    //caso só queira validar a formatação use => cpf: 'format'
+                        },
+                        'empresa.cnpj': {
+                            cnpj: 'valid' //valida tanto Formatação como os Digitos
+                        }
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <form id="f-exemplo">
+            <input type="text" name="pessoa.cpf" value="" />
+            <input type="text" name="empresa.cnpj" value="" />
+            <input type="hidden" name="_method" value="PUT"/>
+        </form>
+    </body>
+</html>
